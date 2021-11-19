@@ -23,7 +23,21 @@
 const date = $("#datepicker").get(0);  //selecteur pour le date picker
 const ajouterTache = $("#ajouterTache").get(0); //selecteur pour le bouton d'ajou de tâche
 /*Fonctions*/
-$( function() {   //fonction pour rafraichir et activer le datepicker 
+
+/*Date picker*/
+$("#datepicker").datepicker({
+    dateFormat: "dd-mm-yy",
+    dayNames: [ "Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi" ],
+    dayNamesShort: [ "Dim", "Lun", "Mar", "Mer", "Jeu", "Ven", "Sam" ],
+    dayNamesMin: [ "Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa" ],
+    monthNames: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre"]
+})
+
+//format date
+$( "#datepicker" ).datepicker( "option", "dateFormat", "dd-mm-yy" );
+
+//fonction pour rafraichir et activer le datepicker 
+$( function() {   
     $( "#datepicker" ).datepicker();
   } );
 
