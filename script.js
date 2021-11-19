@@ -33,9 +33,6 @@ $("#datepicker").datepicker({
     monthNames: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre", "Octobre", "Novembre", "Décembre"]
 })
 
-//format date
-$( "#datepicker" ).datepicker( "option", "dateFormat", "dd-mm-yy" );
-
 //fonction pour rafraichir et activer le datepicker 
 $( function() {   
     $( "#datepicker" ).datepicker();
