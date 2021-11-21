@@ -20,6 +20,10 @@
 
 /*Kevin*/
 /*Variables*/
+
+/*Fonctions*/
+/*Executions*/
+=======
 const date = $("#datepicker").get(0);  //selecteur pour le date picker
 const ajouterTache = $("#ajouterTache").get(0); //selecteur pour le bouton d'ajou de tâche
 /*Fonctions*/
@@ -47,3 +51,4 @@ const lireObjet = function(key){    //fonction pour récupérer la tache enregis
     var value = this.localStorage.getItem(key);
     return value && JSON.parse(value);
 }
+
