@@ -33,16 +33,16 @@
                     <label class="form-label" for="form1"></label>
                     <div class="form-group">
                       <label for="priorite">Priorité de la tâche</label>
-                      <select class="form-control" id="priorite">
-                        <option>Priorité élevé</option>
-                        <option>Priorité moyenne</option>
-                        <option>Priorité basse</option>
+                      <select class="form-control" id="prioriteSelect">
+                        <option value="Elevee">Priorité élevé</option>
+                        <option value="Normale">Priorité moyenne</option>
+                        <option value="Faible">Priorité basse</option>
                       </select>
                     </div>
                     
                     <div class="input-group mt-4">
                       <span class="input-group-text">Détails de la tâche</span>
-                      <textarea class="form-control" aria-label="With textarea"></textarea>
+                      <textarea id="textArea" class="form-control" aria-label="With textarea"></textarea>
                     </div>
                     
                     <div class="row m-3">
@@ -52,10 +52,10 @@
                     </div>
                     <div class="row">
                       <div class="col-6">
-                        <button type="button" id="ajouterTache"class="btn btn-primary">Ajouter à la liste</button>
+                        <button type="button" id="save"class="btn btn-primary">Ajouter à la liste</button>
                       </div>
                       <div class="col-6">
-                        <button type="button" id="ajouterTache"class="btn btn-danger">Supprimer les tâches terminés</button>
+                        <button type="button" id="ajouterTache"class="btn btn-danger">Supprimer les tâches terminées</button>
                       </div>
                     </div>
                   </div>
@@ -74,25 +74,8 @@
                     
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">Buy groceries for next week</th>
-                    <td></td>
-                    <td></td>
-                    <td class="badge bg-danger mt-2">High priority</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Renew car insurance</th>
-                    <td></td>
-                    <td>In progress</td>
-                    <td class="badge bg-success mt-2">Low priority</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">Sign up for online course</th>
-                    <td></td>
-                    <td>In progress</td>
-                    <td class="badge bg-warning mt-2">Medium priority</td>
-                  </tr>
+                <tbody id="tbody">
+                  
                 </tbody>
               </table>
               

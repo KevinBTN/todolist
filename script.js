@@ -1,7 +1,46 @@
 /*Noé*/
-/*Variables*/
-/*Fonctions*/
-/*Executions*/
+let saveButton, inputPriorite, tBody, tdPrio, niveauPrio, inputTitre, finButton, delButton;
+/**
+** FONCTIONS **
+**/
+const tache =(e) =>{
+    e.preventDefault()
+    const prio = inputPriorite.value;
+    const titre = document.getElementById("form1");
+    const descriptionValue = document.getElementById('textArea');
+    const dateTache = document.getElementById('datepicker')
+    const nvlleTache = new Task(titre.value, prio, descriptionValue.value, dateTache.value)
+    const setStorage = () => localStorage.setItem(titre.value, JSON.stringify(nvlleTache));
+    let className;
+    if (prio === "Elevee") {
+        className = "bg-danger"
+    } else if (prio === "Normale") {
+        className = "bg-secondary"
+    } else if (prio === "Faible") {
+        className ="bg-success"
+    }
+    setStorage(nvlleTache);
+    tBody.innerHTML += `
+    <tr>
+    <td> ${titre.value} </td>
+    <td>${dateTache.value}</td>
+    <td class="align-middle">
+    <h6 class="mb-0"><span class="badge ${className}"> ${prio} </span></h6> 
+    </td>
+    <td><input class="form-check-input" type="checkbox" id="checkboxNoLabel"></td>
+    </tr>
+    `
+}
+/**
+** EXECUTION **
+**/
+inputPriorite = document.getElementById('prioriteSelect')
+inputTitre = document.getElementById('titre')
+finButton = document.getElementById('fin')
+delButton = document.getElementById('del')
+saveButton = document.getElementById('save')
+tBody = document.getElementById('tbody')
+saveButton.addEventListener('click', tache)
 
 /*Mel*/
 /*Variables*/
@@ -14,16 +53,43 @@
 /*Executions*/
 
 /*Aurélie*/
-/*Variables*/
-/*Fonctions*/
-/*Executions*/
+//Chargement de la page
+// Chargement de la page
+window.addEventListener('load', () =>  {
 
+    // Récupération du local storage
+    for(let i = 0; i < localStorage.length; i++){
+        const storage = JSON.parse(localStorage.getItem(localStorage.key(i)));
+        console.log(storage);
+        
+        let className;
+        if (storage.priorite === "Elevee") {
+            className = "bg-danger"
+        } else if (storage.priorite === "Normale") {
+            className = "bg-secondary"
+        } else if (storage.priorite === "Faible") {
+            className ="bg-success"
+        }
+        // Raffraichissement de la liste
+        tBody.innerHTML += `
+        <tr>
+        <td> ${storage.titre} </td>
+        <td>${storage.dateLimite}</td>
+        <td class="align-middle">
+        <h6 class="mb-0"><span class="badge ${className}"> ${storage.priorite} </span></h6> 
+        </td>
+        <td><input class="form-check-input" type="checkbox" id="checkboxNoLabel"></td>
+        </tr>
+        `
+    }
+    
+    
+})
 /*Kevin*/
 /*Variables*/
 
 /*Fonctions*/
 /*Executions*/
-=======
 const date = $("#datepicker").get(0);  //selecteur pour le date picker
 const ajouterTache = $("#ajouterTache").get(0); //selecteur pour le bouton d'ajou de tâche
 /*Fonctions*/
@@ -40,7 +106,7 @@ $("#datepicker").datepicker({
 //fonction pour rafraichir et activer le datepicker 
 $( function() {   
     $( "#datepicker" ).datepicker();
-  } );
+} );
 
 /*Executions*/
 $("#ajouterTache").click(function(){  //click sur bouton ajouter à la liste
