@@ -29,7 +29,7 @@ const tache =(e) =>{
     <td class="align-middle">
     <h6 class="mb-0"><span class="badge ${className}"> ${prio} </span></h6> 
     </td>
-    <td><input class="form-check-input " type="checkbox" id="${idTask}"></td>
+    <td><input class="form-check-input" type="checkbox" id="${idTask}"></td>
     </tr>
     `
 }
@@ -45,17 +45,33 @@ tBody = document.getElementById('tbody')
 saveButton.addEventListener('click', tache)
 
 /*Mel*/
-var checkbox = document.querySelectorAll("type=\"checkbox\"");
-var getClassTasks = document.getElementsByClassName(classTask);
-checkbox.addEventListener('change', function() {
+var checkbox = document.querySelectorAll(".form-check-input");
+for(let i = 0; i < checkbox.length; i++){
+    checkbox.addEventListener('change', function() {
+        var target = document.querySelectorAll("." + JSON.parse(localStorage.getItem(localStorage.key(i)))).titre.replace(/\s+/g, '-');
+        for(let j = 0 ; j < target.length; j++){
+                        target[j].classList.toggle("barre");
+                       
+                   }
+        console.log(target);
+      });
     
-    if (this.checked) {
-     
-    } else {
-      
-    }
-  });
+}
+//************************************** */
+// var checkbox = document.querySelectorAll(".form-check-input");  
+// var listASup = [];
+// for(let i = 0; i < checkbox.length; i++ ){
 
+//     checkbox[i].addEventListener("change", ()=>{
+//         var target = document.querySelectorAll("." + lireObjet(i).nom.replace(/\s+/g, '-'));
+//         for(let j = 0 ; j < target.length; j++){
+//             target[j].classList.toggle("barre");
+            
+//         }
+//         listASup.push(lireObjet(i).nom);
+//     })
+// }
+/********************************************** */
 
 /*Benoit*/
 /*Variables*/
