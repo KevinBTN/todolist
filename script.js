@@ -14,7 +14,8 @@
 /*Executions*/
 
 /*Aurélie*/
-/*voila*/
+// Barrage du texte
+sibling.innerHTML = complete ? `<del>${text}</del>` : text
 /*Variables*/
 /*Fonctions*/
 /*Executions*/
