@@ -8,7 +8,9 @@ const tache =(e) =>{
     const prio = inputPriorite.value;
     const titre = document.getElementById("form1");
     const descriptionValue = document.getElementById('textArea');
-    const dateTache = document.getElementById('datepicker')
+    const dateTache = document.getElementById('datepicker');
+    const classTask = titre.value.replace(/\s+/g, '-');
+    const idTask = titre.value.replace(/\s+/g, '-') + "-id";
     const nvlleTache = new Task(titre.value, prio, descriptionValue.value, dateTache.value)
     const setStorage = () => localStorage.setItem(titre.value, JSON.stringify(nvlleTache));
     let className;
@@ -22,12 +24,12 @@ const tache =(e) =>{
     setStorage(nvlleTache);
     tBody.innerHTML += `
     <tr>
-    <td> ${titre.value} </td>
-    <td>${dateTache.value}</td>
+    <td class="${classTask}"> ${titre.value} </td>
+    <td class="${classTask}">${dateTache.value}</td>
     <td class="align-middle">
     <h6 class="mb-0"><span class="badge ${className}"> ${prio} </span></h6> 
     </td>
-    <td><input class="form-check-input" type="checkbox" id="checkboxNoLabel"></td>
+    <td><input class="form-check-input " type="checkbox" id="${idTask}"></td>
     </tr>
     `
 }
@@ -43,9 +45,17 @@ tBody = document.getElementById('tbody')
 saveButton.addEventListener('click', tache)
 
 /*Mel*/
-/*Variables*/
-/*Fonctions*/
-/*Executions*/
+var checkbox = document.querySelectorAll("type=\"checkbox\"");
+var getClassTasks = document.getElementsByClassName(classTask);
+checkbox.addEventListener('change', function() {
+    
+    if (this.checked) {
+     
+    } else {
+      
+    }
+  });
+
 
 /*Benoit*/
 /*Variables*/
@@ -71,21 +81,22 @@ window.addEventListener('load', () =>  {
             className ="bg-success"
         }
         // Raffraichissement de la liste
+        const classTask = storage.titre.replace(/\s+/g, '-');
+        const idTask = storage.titre.replace(/\s+/g, '-') + "-id";
         tBody.innerHTML += `
         <tr>
-        <td> ${storage.titre} </td>
-        <td>${storage.dateLimite}</td>
+        <td class="${classTask}"> ${storage.titre} </td>
+        <td class="${classTask}">${storage.dateLimite}</td>
         <td class="align-middle">
         <h6 class="mb-0"><span class="badge ${className}"> ${storage.priorite} </span></h6> 
         </td>
-        <td><input class="form-check-input" type="checkbox" id="checkboxNoLabel"></td>
+        <td><input class="form-check-input" type="checkbox" id="${idTask}"></td>
         </tr>
         `
-    }
-    
-    
+    }    
 })
-/*Kevin*/
+
+
 /*Variables*/
 
 /*Fonctions*/
